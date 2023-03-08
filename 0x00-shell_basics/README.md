@@ -11,35 +11,35 @@
 * This script displays current directory contents in a long format.
 
 # Hidden files
-- Displays current directory contents, including hidden files (starting with .). Use the long format.
+* Displays current directory contents, including hidden files (starting with .). Use the long format.
 
 # I love numbers
-- Display current directory contents.
+* Display current directory contents.
 
 > * Long format
 > * with user and group IDs displayed numerically
 > * And hidden files (starting with .)
 
 # Welcome
--  creates a directory named my_first_directory in the /tmp/ directory.
+*  creates a directory named my_first_directory in the /tmp/ directory.
 
 # Betty in my first directory
-- Moves the file betty from /tmp/ to /tmp/my_first_directory.
+* Moves the file betty from /tmp/ to /tmp/my_first_directory.
 
 # Bye bye Betty
-- Deletes the file betty
+* Deletes the file betty
 
 # Bye bye My first directory
-- Delete the directory my_first_directory that is in the /tmp directory.
+* Delete the directory my_first_directory that is in the /tmp directory.
 
 # Back to the future
-- changes the working directory to the previous one.
+* changes the working directory to the previous one.
 
 # Lists
-- lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format.
+* lists all files (even ones with names beginning with a period character, which are normally hidden) in the current directory and the parent of the working directory and the /boot directory (in this order), in long format.
 
 # File type
--prints the type of the file named iamafile. The file iamafile will be in the /tmp directory when we will run your script.
+* prints the type of the file named iamafile. The file iamafile will be in the /tmp directory when we will run your script.
 
 # We are symbols, and inhabit symbols
 * Create a symbolic link to /bin/ls, named __ls__. The symbolic link should be created in the current working directory.
@@ -53,14 +53,14 @@ Consider that all HTML files have the extension .html
 Assume that the directory /tmp/u will exist when we will run your script.
 
 # Clean Emacs
-- deletes all files in the current working directory that end with the character ~.
+* deletes all files in the current working directory that end with the character ~.
 
 # Tree 
-- creates the directories welcome/, welcome/to/ and welcome/to/school in the current directory.
+* creates the directories welcome/, welcome/to/ and welcome/to/school in the current directory.
 You are only allowed to use two spaces (and lines) in your script, not more.
 
 # Life is a series of commas, not periods
-- Write a command that lists all the files and directories of the current directory, separated by commas (,).
+* Write a command that lists all the files and directories of the current directory, separated by commas (,).
 
 > * Directory names should end with a slash (/)
 > * Files and directories starting with a dot (.) should be listed
