@@ -64,6 +64,12 @@ The file hello will be in the working directory You are not allowed to use comma
 
 # Symbolic links
 * changes the owner and the group owner of _hello to vincent and staff respectively.
-
 > * The file _hello is in the working directory
 > * The file _hello is a symbolic link.
+
+# If only
+* Changes the owner of the file hello to betty only if it is owned by the user guillaume.
+> * The file hello will be in the working directory.
+
+# Star Wars
+* Plays the StarWars IV episode in the terminal.
