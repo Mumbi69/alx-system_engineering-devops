@@ -1,2 +1,2 @@
 #!/bin/bash
-idroot
+id -gn
