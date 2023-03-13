@@ -1,0 +1,4 @@
+total 8
+drwxrwxr-x 2 vagrant vagrant 4096 Mar 13 11:45 .
+drwxrwxr-x 3 vagrant vagrant 4096 Mar 13 11:44 ..
+-rw-rw-r-- 1 vagrant vagrant    0 Mar 13 11:45 ls_cwd_content
