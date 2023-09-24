@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# configure it to our needs so that you can connect to a server without typing a password.
+Host school
+    HostName localhost
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
