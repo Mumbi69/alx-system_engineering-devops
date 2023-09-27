@@ -1,1 +1,19 @@
 #!/usr/bin/env bash
+# Update the package list and install Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# starting the server
+sudo service nginx start
+
+# Create a basic HTML file with "Hello World!"
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+
+# Configure Nginx to serve the HTML file at port 80
+sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
+
+# Restart Nginx to apply the configuration
+sudo service nginx reload
+
+# Exit with success code
+# exit 0
