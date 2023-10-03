@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Update the package list and install Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# starting the server
+sudo service nginx start
+
+#Create the index file
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+
+# Configure Nginx to serve the HTML file at port 80
+sudo sed -i 's/listen [^;]*;/listen 80;/g' /etc/nginx/sites-available/default
+
+# Redirect
+sudo sed -i '/^}$/i \ \n\tlocation \/redirect_me {return 301 https:\/\/www.youtube.com/watch?v=QH2-TGUlwu4;}' /etc/nginx/sites-available/default
+
+# Create the custom 404 page
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html > /dev/null
+
+# Configure Nginx to use the custom 404 page
+sudo sed -i '/^\t}/a \\terror_page 404 /custom_404.html;' /etc/nginx/sites-available/default
+sudo sed -i "/error_page .*;/a \\\tlocation = \/custom_404.html \{\\n\\t\\troot \/var\/www\/html;\\n\\t\\tinternal;\\n\\t\}" /etc/nginx/sites-available/default
+
+# Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
+HOSTNAME=$(hostname)
+HTTP_HEADER="add_header X-Served-By $HOSTNAME;"
+sudo sed -i "/^\tlisten .*;/a \\\t$HTTP_HEADER" /etc/nginx/sites-available/default
+
+# Test and reload Nginx
+sudo service nginx restart
+echo "Nginx custom 404 page configured successfully."
