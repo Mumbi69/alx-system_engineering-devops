@@ -27,5 +27,5 @@ HTTP_HEADER="add_header X-Served-By $HOSTNAME;"
 sudo sed -i "/^\tlisten .*;/a \\\t$HTTP_HEADER" /etc/nginx/sites-available/default
 
 # Test and reload Nginx
-sudo service nginx restart
+sudo nginx reload
 echo "Nginx custom 404 page configured successfully."
