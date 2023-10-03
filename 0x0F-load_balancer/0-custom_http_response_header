@@ -23,7 +23,6 @@ sudo sed -i '/^\t}/a \\terror_page 404 /custom_404.html;' /etc/nginx/sites-avail
 sudo sed -i "/error_page .*;/a \\\tlocation = \/custom_404.html \{\\n\\t\\troot \/var\/www\/html;\\n\\t\\tinternal;\\n\\t\}" /etc/nginx/sites-available/default
 
 # Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02)
-HOSTNAME=$(hostname)
 HTTP_HEADER="add_header X-Served-By $HOSTNAME;"
 sudo sed -i "/^\tlisten .*;/a \\\t$HTTP_HEADER" /etc/nginx/sites-available/default
 
