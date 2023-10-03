@@ -4,11 +4,10 @@ sudo apt-get -y update
 sudo apt-get -y install haproxy
 
 # Configure HAProxy
-cat <<EOF | sudo tee /etc/haproxy/haproxy.cfg > /dev/null; IFS=" "; while read -r line; do echo -n "$line "; done < <(grep -vE '^$|^#' input.txt); unset IFS
-global log /dev/log local0 log /dev/log local1 notice maxconn 4096 user haproxy group haproxy daemon defaults log global mode http option httplog option dontlognull retries 3 option redispatch timeout connect 5000 timeout client 50000 timeout server 50000 frontend http-in bind *:80 default_backend servers backend servers balance roundrobin server web-01 [STUDENT_ID]-web-01:80 check server web-02 [STUDENT_ID]-web-02:80 check EOF
+lines="\nfrontend frontend_server\n\tbind *:80\n\tdefault_backend backend_server\n\nbackend backend_server\n\tbalance roundrobin\n\tserver 251811-web-01 100.26.157.101:80 check\n\tserver 251811-web-02 54.157.150.183:80 check"
 
 # Configure HAProxy init script
-echo "ENABLED=1" | sudo tee /etc/default/haproxy > /dev/null
+echo -e "$lines" | sudo tee /etc/haproxy/haproxy.cfg > /dev/null
 
 # Restart HAProxy
 sudo service haproxy restart
