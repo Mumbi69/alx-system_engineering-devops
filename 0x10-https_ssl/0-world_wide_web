@@ -5,7 +5,7 @@ dns_info() {
     local subdomain=$2
     ip=$(dig "$subdomain"."$domain" | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | tail -1)
     rec_type=$(dig "$subdomain"."$domain" | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | tail -1)
-    echo "The subdomain $subdomain is a $rec_type record and points to $ip."
+    echo "The subdomain $subdomain is a $rec_type record and points to $ip"
 }
 
 # Check if both domain and subdomain parameters are provided
