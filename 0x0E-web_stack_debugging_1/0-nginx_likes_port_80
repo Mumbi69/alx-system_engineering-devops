@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
-# Update package list
-sudo apt update
-
-# Install Nginx
-sudo apt install nginx -y
-
-# Ensure Nginx starts at boot
+# Debugging Ubuntu container’s Nginx installation from listening on port 80
 service nginx start
 
 # Configure Nginx to listen on port 80
@@ -13,6 +7,3 @@ sed -i 's/[0-9]+ default_server/80 default_server/' /etc/nginx/sites-enabled/def
 
 # Restart Nginx to apply changes
 service nginx restart
-
-# Check if Nginx is listening on port 80
-echo "Nginx is now configured to listen on port 80."
