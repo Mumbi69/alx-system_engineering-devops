@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
-
-# Ensure Nginx is installed
-if ! command -v nginx &> /dev/null; then
-    echo "Nginx is not installed. Please install it first."
-    exit 1
-fi
-
 # Modify the default Nginx configuration
 if grep -q "listen 80 default_server" /etc/nginx/sites-available/default; then
     echo "Nginx is already configured to listen on port 80."
