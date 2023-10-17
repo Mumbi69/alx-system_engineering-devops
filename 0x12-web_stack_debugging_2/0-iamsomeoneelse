@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 # run the whoami command under the user passed as an argument
-usage() {
+if [ "$#" -ne 1 ]; then
     echo "Usage: $0 <username>"
     exit 1
-}
-
-# Check if exactly one argument is provided
-if [ "$#" -ne 1 ]; then
-    usage
 fi
 
 # Run the whoami command as the specified user
