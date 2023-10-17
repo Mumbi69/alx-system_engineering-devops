@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # MySQL dump file name
 mysqldump -u root -p"$1" --all-databases > backup.sql
 # Create a tar.gz archive
