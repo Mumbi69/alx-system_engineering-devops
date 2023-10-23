@@ -26,7 +26,7 @@ def get_employee_todo_progress(employee_id):
 
     # displays the progress
     print(f"Employee {employee_name} is done with tasks\
- ({len(completed_tasks)}/{total_tasks}):")
+ ({completed_tasks}/{total_tasks}):")
 
     # displays tites of completed tasks
     for todo in todos_data:
