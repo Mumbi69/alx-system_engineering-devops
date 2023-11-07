@@ -5,15 +5,18 @@ import requests
 
 def recurse(subreddit, hot_list=[], after=None):
     """
-    Recursively retrieve and append the titles of all hot posts for a given subreddit using the Reddit API.
+    Recursively retrieve and append the titles of all
+    hot posts for a given subreddit using the Reddit API.
 
     Args:
         subreddit (str): The name of the subreddit.
         hot_list (list): A list to store the titles of hot posts.
-        after (str): The "after" parameter for pagination (used in recursive calls).
+        after (str): The "after" parameter for pagination
+        (used in recursive calls).
 
     Returns:
-        list: A list containing the titles of all hot posts for the subreddit, or None if not found.
+        list: A list containing the titles of all hot
+        posts for the subreddit, or None if not found.
     """
     if not subreddit:
         return None
