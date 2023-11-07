@@ -12,16 +12,11 @@ def top_ten(subreddit):
     url = f"https://www.reddit.com/r/{subreddit}/hot/.json?limit=10"
     headers = {"User-Agent": "MyRedditScraper"}
 
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, params={"limit": 10}, headers=headers)
 
     if response.status_code == 200:
-        data = response.json()
-        if "data" in data and "children" in data["data"]:
-            posts = data["data"]["children"]
-            if len(posts) == 0:
-                print("No posts found in this subreddit.")
-            else:
-                for i, post in enumerate(posts):
-                    print(f"{i + 1}: {post['data']['title']}")
-        else:
-            print("None")
+        posts = response.json().get("data", {}).get("children", [])
+        for post in posts:
+            print(post["data"]["title"])
+    else:
+        print("None")
