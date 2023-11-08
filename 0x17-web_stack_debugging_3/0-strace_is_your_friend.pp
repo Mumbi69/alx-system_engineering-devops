@@ -1,4 +1,4 @@
 # Using tmux with strace to debug apache server
 exec { 'debug_apache':
-        command  => 'grep -rl 'phpp' /var/www/html/wp-settings.php',
+        command  => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
 }
